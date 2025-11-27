@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vince Allen Jocutan - Personal Space</title>
+    <link rel="icon" type="image/x-icon" href="C:\Users\Vince\Downloads\Compressed\JOCUTAN PERSONAL WEBSITE\PERSONAL WEBSITE\PIC.jpg">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --primary-brown: #8B4513;
+            --light-brown: #A0522D;
+            --dark-brown: #5C3317;
+            --accent-gold: #D4AF37;
+            --cream: #F5F5DC;
+            --text-dark: #3E2723;
+        }
+
+        body {
+            background: linear-gradient(135deg, var(--cream), #e9dcc2);
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        header {
+            background-color: var(--primary-brown);
+            color: white;
+            padding: 15px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 999;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 45px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 25px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            position: relative;
+            transition: 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: var(--accent-gold);
+        }
+
+        .mobile-menu {
+            display: none;
+            font-size: 1.5rem;
+            color: white;
+            cursor: pointer;
+        }
+
+        .hero {
+            padding: 100px 0;
+            background: url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=1350&q=80') no-repeat center center;
+            background-size: cover;
+            position: relative;
+            color: white;
+            text-align: center;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: rgba(139,69,19,0.7);
+            top: 0;
+            left: 0;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: 3.2rem;
+            margin-bottom: 15px;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+
+        .btn {
+            background-color: var(--accent-gold);
+            color: var(--dark-brown);
+            padding: 12px 25px;
+            border-radius: 30px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #c19d2a;
+            transform: translateY(-3px);
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--primary-brown);
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            width: 70%;
+            height: 3px;
+            background: var(--accent-gold);
+            bottom: -10px;
+            left: 15%;
+        }
+
+        .about-content {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 40px;
+        }
+
+        .profile-img {
+            flex: 1;
+            text-align: center;
+        }
+
+        .profile-img img {
+            width: 280px;
+            height: 280px;
+            border-radius: 50%;
+            border: 5px solid var(--accent-gold);
+            object-fit: cover;
+        }
+
+        .profile-info {
+            flex: 2;
+        }
+
+        .profile-info h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--primary-brown);
+        }
+
+        .profile-info p {
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+        }
+
+        .skills-container, .hobbies-container, .achievements-container, .education-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+            gap: 25px;
+        }
+
+        .card {
+            background: white;
+            border-left: 5px solid var(--accent-gold);
+            padding: 25px 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: 0.3s;
+            text-align: center;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+        }
+
+        .card i {
+            font-size: 2.5rem;
+            color: var(--accent-gold);
+            margin-bottom: 10px;
+        }
+
+        .card h3 {
+            color: var(--primary-brown);
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            font-size: 1rem;
+        }
+
+        .motto {
+            background: linear-gradient(135deg, var(--primary-brown), var(--light-brown));
+            color: white;
+            text-align: center;
+            padding: 100px 0;
+            position: relative;
+        }
+
+        .motto h2 {
+            font-size: 2.5rem;
+            color: var(--accent-gold);
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.7);
+            animation: glow 3s infinite alternate;
+        }
+
+        @keyframes glow {
+            from { text-shadow: 0 0 10px var(--accent-gold); }
+            to { text-shadow: 0 0 25px var(--accent-gold), 0 0 50px var(--accent-gold); }
+        }
+
+        .contact {
+            background-color: var(--dark-brown);
+            color: white;
+            text-align: center;
+        }
+
+        .contact p a {
+            color: var(--accent-gold);
+            text-decoration: none;
+        }
+
+        .back-btn-floating {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: var(--primary-brown);
+            color: white;
+            padding: 15px 25px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            z-index: 100;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .back-btn-floating:hover {
+            background-color: var(--dark-brown);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        footer {
+            background-color: var(--primary-brown);
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        @media(max-width:768px){
+            .mobile-menu {display:block;}
+            nav ul {
+                display:none;
+                flex-direction:column;
+                background: var(--primary-brown);
+                width:100%;
+                padding:15px;
+            }
+            nav ul.show {display:flex;}
+            .about-content {flex-direction:column;}
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="container header-container">
+        <div class="logo">
+            <img src="PIC.jpg" alt="Vince Logo">
+            <span>Vince Allen Jocutan</span>
+        </div>
+        <div class="mobile-menu" id="mobileMenu">
+            <i class="fas fa-bars"></i>
+        </div>
+        <nav>
+            <ul id="navMenu">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#hobbies">Hobbies</a></li>
+                <li><a href="#motto">Motto</a></li>
+                <li><a href="#achievements">Achievements</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<section class="hero" id="home">
+    <div class="container hero-content">
+        <h1>Hello, I'm Vince Allen Jocutan</h1>
+        <p>A passionate BSIT student exploring the world of web development, coding, and creativity. Welcome to my personal space where I share my journey, skills, and projects.</p>
+        <a href="#about" class="btn">Learn More</a>
+    </div>
+</section>
+
+<section class="section" id="about">
+    <div class="container">
+        <div class="section-title"><h2>About Me</h2></div>
+        <div class="about-content">
+            <div class="profile-img">
+                <img src="C:\Users\Vince\Downloads\Compressed\JOCUTAN PERSONAL WEBSITE\PERSONAL WEBSITE\PIC.jpg" alt="Vince Picture">
+            </div>
+            <div class="profile-info">
+                <h3>20-Year-Old BSIT Student from Panpacific University Urdaneta</h3>
+                <p>I am currently pursuing a Bachelor of Science in Information Technology. My curiosity in technology started early, and I have grown passionate about creating digital experiences that are both useful and meaningful. I enjoy learning about how websites and applications come to life through lines of code.</p>
+                <p>Aside from academics, I’m the type of person who loves both teamwork and self-learning. I believe that hard work, dedication, and consistency are the keys to success in tech and in life.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section" id="education">
+    <div class="container">
+        <div class="section-title"><h2>Education</h2></div>
+        <div class="education-container">
+            <div class="card">
+                <i class="fas fa-university"></i>
+                <h3>Panpacific University Urdaneta</h3>
+                <p>Bachelor of Science in Information Technology (BSIT)<br>2023 - Present</p>
+            </div>
+            <div class="card">
+                <i class="fas fa-school"></i>
+                <h3>Senior High School</h3>
+                <p>Graduated with ICT strand, focusing on programming and computer systems.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section" id="skills">
+    <div class="container">
+        <div class="section-title"><h2>Skills</h2></div>
+        <div class="skills-container">
+            <div class="card">
+                <i class="fab fa-java"></i>
+                <h3>Java</h3>
+                <p>Strong understanding of object-oriented programming and building console-based and GUI applications.</p>
+            </div>
+            <div class="card">
+                <i class="fab fa-python"></i>
+                <h3>Python</h3>
+                <p>Good grasp of problem-solving, data manipulation, and using Python for automation and projects.</p>
+            </div>
+            <div class="card">
+                <i class="fab fa-html5"></i>
+                <h3>HTML & CSS</h3>
+                <p>Capable of creating responsive, user-centered web designs and layouts with attention to detail.</p>
+            </div>
+            <div class="card">
+                <i class="fas fa-utensils"></i>
+                <h3>Cooking</h3>
+                <p>I also enjoy cooking — it’s another creative outlet that helps me relax and express myself.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section" id="hobbies">
+    <div class="container">
+        <div class="section-title"><h2>Hobbies</h2></div>
+        <div class="hobbies-container">
+            <div class="card">
+                <i class="fas fa-basketball-ball"></i>
+                <h3>Basketball</h3>
+                <p>Basketball teaches me teamwork, focus, and determination. It’s my go-to sport that helps me stay active and build discipline.</p>
+            </div>
+            <div class="card">
+                <i class="fas fa-gamepad"></i>
+                <h3>Gaming</h3>
+                <p>Gaming sharpens my reflexes, improves decision-making, and gives me a way to unwind after studying or working on projects.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="motto" id="motto">
+    <div class="container">
+        <h2>"Dream. Code. Create."</h2>
+        <p style="margin-top: 15px; font-size: 1.2rem; color: #fff;">I believe that every great idea starts with a dream — and with passion, learning, and perseverance, we can turn it into something amazing.</p>
+    </div>
+</section>
+
+<section class="section" id="achievements">
+    <div class="container">
+        <div class="section-title"><h2>Achievements & Projects</h2></div>
+        <div class="achievements-container">
+            <div class="card">
+                <i class="fas fa-laptop-code"></i>
+                <h3>My First Website Project</h3>
+                <p>This personal website is my first ever project as a BSIT student. Creating it helped me understand the power of web development, combining design and functionality together.</p>
+            </div>
+            <div class="card">
+                <i class="fas fa-user-graduate"></i>
+                <h3>Continuous Learning</h3>
+                <p>Every new line of code I write teaches me something new. My goal is to keep improving and someday develop websites and systems that can help others.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section contact" id="contact">
+    <div class="container">
+        <div class="section-title"><h2>Contact Me</h2></div>
+        <p><i class="fas fa-envelope"></i> Email: <a href="mailto:vinceallen@example.com">vinceallen@example.com</a></p>
+        <p><i class="fas fa-phone"></i> Phone: +63 912 345 6789</p>
+        <p><i class="fas fa-map-marker-alt"></i> Location: Pangasinan, Philippines</p>
+    </div>
+</section>
+
+<a href="Landing Page.HTML" class="back-btn-floating">
+    <i class="fas fa-arrow-left"></i> Back to Main Website
+</a>
+
+<footer>
+    <p>&copy; 2025 Vince Allen Jocutan | All Rights Reserved</p>
+</footer>
+
+<script>
+    const mobileMenu = document.getElementById('mobileMenu');
+    const navMenu = document.getElementById('navMenu');
+
+    mobileMenu.addEventListener('click', () => {
+        navMenu.classList.toggle('show');
+    });
+
+    document.querySelectorAll('nav a').forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            window.scrollTo({
+                top: target.offsetTop - 70,
+                behavior: 'smooth'
+            });
+            if(navMenu.classList.contains('show')) navMenu.classList.remove('show');
+        });
+    });
+</script>
+
+</body>
+</html>
